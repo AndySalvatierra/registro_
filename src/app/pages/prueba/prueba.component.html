@@ -1,0 +1,57 @@
+
+
+<div class="container">
+   <div class="box">
+      <img class="logo" src="./../../../assets/images/logo_utm.png" />
+
+   <input type="tel" [(ngModel)]="objeto_persona.cedula" nz-input placeholder="Cedula">
+
+   <input type="text" [(ngModel)]="objeto_persona.nombres" nz-input placeholder="Nombres">
+
+   <input type="text" [(ngModel)]="objeto_persona.apellidos" nz-input placeholder="Apellidos">
+
+   <input type="tel" [(ngModel)]="objeto_persona.telefono" nz-input placeholder="Telefono">
+
+   <input type="email" [(ngModel)]="objeto_persona.correo" nz-input placeholder="Correo">
+
+   <input type="text" [(ngModel)]="objeto_persona.Ciudad" nz-input placeholder="Ciudad">
+
+   <nz-date-picker [(ngModel)]="objeto_persona.fecha_nacimiento"></nz-date-picker>
+   
+   <label nz-checkbox [(ngModel)]="objeto_persona.es_doante">Donante</label>
+
+
+   <button [disabled]="!objeto_persona.cedula.length || !objeto_persona.nombres || !objeto_persona.apellidos || !objeto_persona.telefono|| !objeto_persona.correo || !objeto_persona.fecha_nacimiento"
+    nz-button nzType="primary" (click)="dar_click()">Guardar</button>
+  
+ </div>
+
+ <div class="table-container">
+  <nz-table>
+   <thead>
+      <tr>
+        <th>Cedula</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>Ciudad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of objeto_tabla; let i =index">
+        <td>{{data.Cedula}}</td>
+        <td>{{data.Nombres}}</td>
+        <td>{{data.Apellidos}}</td>
+        <td>
+          <a>Action 一 {{data.name}}</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  
+  </div>
+
+

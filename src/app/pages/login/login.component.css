@@ -1,0 +1,79 @@
+.form_login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -160px 0 0 -160px;
+  width: 320px;
+  height: 320px;
+  padding: 36px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.39);
+  background-color: rgba(219, 219, 219, 0.32);
+}
+
+.form_login button {
+  width: 100%;
+}
+
+.form_login p {
+  color: #cccccc;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.form_login p span:first-child {
+  margin-right: 16px;
+}
+
+.form_login .logo {
+  text-align: center;
+  height: 80px;
+  line-height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_login .logo img {
+  width: 40px;
+  margin-right: 8px;
+}
+
+.form_login .logo span {
+  vertical-align: text-bottom;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.globalFooter {
+  padding: 0 16px;
+  margin: 48px 0 24px 0;
+  text-align: center;
+}
+
+.globalFooter .links {
+  margin-bottom: 8px;
+}
+
+.globalFooter .links a {
+  color: rgba(0, 0, 0, 0.45);
+  transition: all 0.3s;
+}
+
+.globalFooter .links a:not(:last-child) {
+  margin-right: 40px;
+}
+
+.globalFooter .links a:hover {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.globalFooter .copyright {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+}
+
+/* i {
+  font-size: 24px;
+} */
