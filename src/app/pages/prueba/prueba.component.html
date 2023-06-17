@@ -2,7 +2,7 @@
 
 <div class="container">
    <div class="box">
-      <!-- <img class="logo" src="./../../../assets/images/logo_utm.png" /> -->
+     <img class="logo" src="./../../../assets/images/logo_utm.png" />
 
    <input type="tel" [(ngModel)]="objeto_persona.cedula" nz-input placeholder="Cedula">
 
@@ -21,7 +21,7 @@
   <nz-option *ngFor="let item of objeto_ciudad" nzValue="{{item}}" nzLabel="{{item}}"></nz-option>>
   </nz-select>
 
-   <button [disabled]="!objeto_persona.cedula.length || !objeto_persona.nombres || !objeto_persona.apellidos || !objeto_persona.telefono|| !objeto_persona.correo || !objeto_persona.fecha_nacimiento"
+   <button [disabled]="!objeto_persona.cedula.length || !objeto_persona.nombres || !objeto_persona.apellidos || !objeto_persona.telefono|| !objeto_persona.correo || !objeto_persona.fecha_nacimiento || !objeto_persona.ciudad"
     nz-button nzType="primary" (click)="dar_click()">Guardar</button>
   
  </div>
@@ -36,7 +36,7 @@
         <th>Telefono</th>
         <th>Ciudad</th>
         <th>Correo</th>
-        <th>action</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
