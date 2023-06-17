@@ -7,7 +7,7 @@ import { EventosService } from 'src/app/services/eventos.service';
 
 
 @Component({
-    selector: 'app-prueba',
+    selector: 'app-login',
     templateUrl: './prueba.component.html',
     styleUrls: ['./prueba.component.css']
   })
@@ -23,19 +23,15 @@ import { EventosService } from 'src/app/services/eventos.service';
         ciudad: "",
         correo: "",
         fecha_nacimiento: new Date(),//moment(moment().format("DD/MM/YYYY")).toDate(),
-        es_donante: false 
     }; 
 
-    objeto_tabla: any = {
-      cedula: "", // Valor de ejemplo, reemplaza con el valor real
-      nombres: "",
-      apellidos: "",
-      telefono: "",
-      ciudad: "",
-      correo: "",
-      fecha_nacimiento: "", // Valor de ejemplo, reemplaza con el valor real
-      es_donante: true
-    };
+    eliminar(item: any){
+      this.objeto_tabla.splice(item, 1);
+  };
+
+    objeto_tabla: any = [
+
+    ];
     
     objeto_ciudad: any =[
       'Portoviejo',
@@ -54,7 +50,6 @@ import { EventosService } from 'src/app/services/eventos.service';
       ciudad: "",
       correo: "",
       fecha_nacimiento: new Date(),//moment(moment().format("DD/MM/YYYY")).toDate(),
-      es_donante: false 
     };
    }
 
@@ -89,7 +84,10 @@ import { EventosService } from 'src/app/services/eventos.service';
     }
 
     dar_click(){
-        console.log(this.objeto_persona);
+      console.log(this.objeto_persona);
+      this.objeto_tabla.push(this.objeto_persona);
+      console.log(this.objeto_tabla)
+      this.limpiar_datos();
     }
 
     autenticar(): void {

@@ -2,7 +2,7 @@
 
 <div class="container">
    <div class="box">
-      <img class="logo" src="./../../../assets/images/logo_utm.png" />
+      <!-- <img class="logo" src="./../../../assets/images/logo_utm.png" /> -->
 
    <input type="tel" [(ngModel)]="objeto_persona.cedula" nz-input placeholder="Cedula">
 
@@ -16,10 +16,8 @@
 
    <nz-date-picker [(ngModel)]="objeto_persona.fecha_nacimiento"></nz-date-picker>
    
-   
-   <label nz-checkbox [(ngModel)]="objeto_persona.es_doante">Donante</label>
 
-  <nz-select [(ngModel)]="objeto_ciudad.Ciudad" style="width: 100%;" nzPlaceHolder="Seleccione">
+  <nz-select [(ngModel)]="objeto_persona.ciudad" style="width: 100%;" nzPlaceHolder="Seleccione">
   <nz-option *ngFor="let item of objeto_ciudad" nzValue="{{item}}" nzLabel="{{item}}"></nz-option>>
   </nz-select>
 
@@ -36,27 +34,26 @@
         <th>Nombres</th>
         <th>Apellidos</th>
         <th>Telefono</th>
-        <th>Correo</th>
         <th>Ciudad</th>
+        <th>Correo</th>
+        <th>action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of objeto_tabla; let i =index">
-        <td>{{data.Cedula}}</td>
-        <td>{{data.Nombres}}</td>
-        <td>{{data.Apellidos}}</td>
-        <td>{{data.Telefono}}</td>
-        <td>{{data.Correo}}</td>
-        <td>{{data.Ciudad}}</td>
+        <td>{{data.cedula}}</td>
+        <td>{{data.nombres}}</td>
+        <td>{{data.apellidos}}</td>
+        <td>{{data.telefono}}</td>
+        <td>{{data.ciudad}}</td>
+        <td>{{data.correo}}</td>
         <td>
-          <a>Action 一 {{data.name}}</a>
-          <nz-divider nzType="vertical"></nz-divider>
-          <a>Delete</a>
+          <a (click)="eliminar(i)">Delete</a>
         </td>
       </tr>
     </tbody>
   </nz-table>
   
   </div>
-
+</div>
 
