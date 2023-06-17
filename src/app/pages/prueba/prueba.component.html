@@ -1,4 +1,4 @@
-
+<app-loading></app-loading>
 
 <div class="container">
    <div class="box">
@@ -14,12 +14,14 @@
 
    <input type="email" [(ngModel)]="objeto_persona.correo" nz-input placeholder="Correo">
 
-   <input type="text" [(ngModel)]="objeto_persona.Ciudad" nz-input placeholder="Ciudad">
-
    <nz-date-picker [(ngModel)]="objeto_persona.fecha_nacimiento"></nz-date-picker>
+   
    
    <label nz-checkbox [(ngModel)]="objeto_persona.es_doante">Donante</label>
 
+  <nz-select [(ngModel)]="objeto_ciudad.Ciudad" style="width: 100%;" nzPlaceHolder="Seleccione">
+  <nz-option *ngFor="let item of objeto_ciudad" nzValue="{{item}}" nzLabel="{{item}}"></nz-option>>
+  </nz-select>
 
    <button [disabled]="!objeto_persona.cedula.length || !objeto_persona.nombres || !objeto_persona.apellidos || !objeto_persona.telefono|| !objeto_persona.correo || !objeto_persona.fecha_nacimiento"
     nz-button nzType="primary" (click)="dar_click()">Guardar</button>
@@ -43,6 +45,9 @@
         <td>{{data.Cedula}}</td>
         <td>{{data.Nombres}}</td>
         <td>{{data.Apellidos}}</td>
+        <td>{{data.Telefono}}</td>
+        <td>{{data.Correo}}</td>
+        <td>{{data.Ciudad}}</td>
         <td>
           <a>Action 一 {{data.name}}</a>
           <nz-divider nzType="vertical"></nz-divider>

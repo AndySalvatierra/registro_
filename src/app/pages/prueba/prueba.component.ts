@@ -37,6 +37,13 @@ import { EventosService } from 'src/app/services/eventos.service';
       es_donante: true
     };
     
+    objeto_ciudad: any =[
+      'Portoviejo',
+      'Rocafuerte',
+      'Santa Ana',
+      'Manta',
+      'Chone'
+    ];
     
    limpiar_datos(){
     this.objeto_persona={
