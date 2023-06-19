@@ -1,0 +1,49 @@
+<app-loading></app-loading>
+<form nz-form [formGroup]="usuarioForm" class="form_login" (ngSubmit)="autenticar()">
+    <div class="logo">
+        <img src="./../../../assets/images/four_engine_fondo.jpeg" />
+        <span>{{eventos._NOMBRE_APP}}</span>
+    </div>
+    <nz-form-item>
+        <nz-form-control nzErrorTip="Por favor, ingrese su usuario!">
+            <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input formControlName="usuario" placeholder="Usuario" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        
+        <nz-form-control nzErrorTip="Por favor, ingrese su contraseña!">
+            <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input formControlName="password" placeholder="Contraseña" />
+            </nz-input-group>
+        </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Iniciar Sesión</button>
+</form>
+
+<!--nz-modal [(nzVisible)]="modalVisible" nzTitle="Cambiar Contraseña" (nzOnCancel)="handleCancel()" (nzOnOk)="cambiar_clave()">
+    <ng-container *nzModalContent>
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor, ingrese su nueva contraseña!">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" [(ngModel)]="datos_cambiar_clave.clave_nueva" nz-input placeholder="Contraseña Nueva" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-control nzErrorTip="Por favor, repita su nueva contraseña!">
+                <nz-input-group nzPrefixIcon="lock">
+                    <input type="password" [(ngModel)]="datos_cambiar_clave.clave_confirmacion" nz-input placeholder="Repita Contraseña Nueva" />
+                </nz-input-group>
+            </nz-form-control>
+        </nz-form-item>
+    </ng-container>
+</nz-modal>
+
+<div class="globalFooter">
+    <div class="links">
+        <a href="#">Universidad Técnica de Manabí | Dirección de TICS, Area de Desarrollo de Software</a>
+    </div>
+</div> -->
