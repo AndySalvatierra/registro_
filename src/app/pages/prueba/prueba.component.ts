@@ -35,6 +35,7 @@ import { EventosService } from 'src/app/services/eventos.service';
     
     objeto_ciudad: any =[
       'Portoviejo',
+<<<<<<< HEAD
   'Rocafuerte',
   'Santa Ana',
   'Manta',
@@ -54,6 +55,12 @@ import { EventosService } from 'src/app/services/eventos.service';
   'Durán',
   'Machachi',
   'Sangolquí'
+=======
+      'Rocafuerte',
+      'Santa Ana',
+      'Manta',
+      'Chone'
+>>>>>>> 52736e7ea2c1db761a8f0c2657a39a60309cc9b9
     ];
     
    limpiar_datos(){
@@ -84,7 +91,11 @@ import { EventosService } from 'src/app/services/eventos.service';
       private api: ApiService,
       private router: Router
     ) { }
+<<<<<<< HEAD
     
+=======
+  
+>>>>>>> 52736e7ea2c1db761a8f0c2657a39a60309cc9b9
     ngOnInit(): void {
       this.usuarioForm = this.fb.group({
         usuario: [null, [Validators.required]],
