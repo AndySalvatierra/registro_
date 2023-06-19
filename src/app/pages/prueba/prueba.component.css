@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+  }
+  
+  .box {
+    position: absolute;
+  top: 50%;
+  left: 48.12%;
+  margin: -160px 0 0 -160px;
+  width: 380px; /*ajusta el ancho del cuadro */
+  height: 420px; /* ajusta la altura del cuadro */
+  padding: 73px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.39);
+  background-color: rgba(219, 219, 219, 0.32);
+  }
+
+  .logo{
+    position: absolute;
+    top: 2px; /* Ajusta la posición vertical */
+    left: 150px; /* Ajusta la posición horizontal */
+  }
+  .box button {
+    width: 100%;
+  }
+  
+  .box p {
+    color: #cccccc;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .box p span:first-child {
+    margin-right: 16px;
+  }
+  
+  .box .logo {
+    text-align: center;
+    height: 60px;
+    line-height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box .logo span {
+    vertical-align: text-bottom;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+  
+  input {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .table-container {
+    position: relative;
+    top: 320px; /* ajusta la posición vertical de la tabla */
+    width: 60%; /* ajusta el ancho de la tabla */
+  }
+  
+  .table-container {
+    width: 60%; /* ajusta el ancho de la tabla */
+    border: 1px solid #000; /* define el borde de la tabla */
+  }
+  
+  .table-container {
+    border: 1px solid #000; /* define el borde de las celdas del encabezado */
+  }
+  
+  .table-container {
+    border: 1px solid #000; /* define el borde de las celdas del cuerpo */
+  }
+  

@@ -1,0 +1,63 @@
+<nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzBreakpoint]="'lg'" nzWidth="250px">
+        <div class="logo">
+            <a href="dashboard">
+                <img style="width: 32px;" src="../../../assets/images/logo_utm.png" alt="logo">
+                <!-- <span style="color: #fff; font-weight: bold; margin: 12px;">{{eventos._NOMBRE_APP}}</span> -->
+            </a>
+        </div>
+
+        <ul nz-menu nzTheme="dark" nzMode="vertical" [nzInlineCollapsed]="isCollapsed">
+            <li nz-submenu nzTitle="Aplicaciones" nzIcon="laptop">
+                <ul *ngFor="let item of eventos.usuario.p_aplicacion">
+                    <li class="dedo" nz-menu-group nzTitle="{{item.descripcion}}" (click)="cambiar_aplicacion(item)">
+                    </li>
+                </ul>
+            </li>
+            <li nz-submenu nzTitle="Módulos" nzIcon="build">
+                <ul *ngFor="let item of eventos.usuario.p_modulo">
+                    <li class="dedo" nz-menu-group nzTitle="{{item.descripcion}}" (click)="cambiar_modulo(item)"></li>
+                </ul>
+            </li>
+            <li nz-submenu nzTitle="Roles" nzIcon="team">
+                <ul *ngFor="let item of eventos.usuario.p_roles">
+                    <li class="dedo" nz-menu-group nzTitle="{{item.descripcion}}" (click)="cambiar_rol(item)"></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" *ngFor="let item of eventos.usuario.p_menu_defecto">
+            <li nz-menu-item nzMatchRouter>
+                <i nz-icon nzType="tag"></i>
+                <span>
+                    <a routerLink="{{item.menu_rol_menu.ruta}}">{{item.menu_rol_menu.descripcion}}</a>
+                </span>
+            </li>
+        </ul>
+    </nz-sider>
+
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <div class="leftMenu">
+                <b style="font-size: 11px;">{{eventos.usuario.p_funcionario}}</b> | <span style="font-size: 9px;"><!--{{eventos.usuario.p_aplicacion_defecto_descripcion}} /--> {{eventos.usuario.p_modulo_defecto_descripcion}} / {{eventos.usuario.p_rol_defecto_descripcion}}</span> 
+            </div>
+
+            <div class="rightMenu">
+                <button nz-button nz-popconfirm nzPopconfirmTitle="Está seguro de cerrar sesión?" nzType="text"
+                    nzPopconfirmPlacement="bottomRight" (nzOnConfirm)="eventos.cerrar_sesion()">
+                    <i nz-icon [nzType]="'logout'"></i>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </nz-header>
+
+        <nz-content style="margin:24px 16px 0;">
+            <div style="padding:24px; background: #fff; min-height: 100vh;">
+                <router-outlet></router-outlet>
+                <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+                </ngx-spinner>
+            </div>
+        </nz-content>
+        <nz-footer style="text-align: center;">@UTM | Todos los Derechos Reservados</nz-footer>
+    </nz-layout>
+</nz-layout>

@@ -1,0 +1,139 @@
+<!-- <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <div *ngIf="(eventos.usuario.p_rol_defecto == 17 || eventos.usuario.p_rol_defecto_descripcion == 'RESPONSABLE PLANIFICACION INSTITUCIONAL') && this.eventos.usuario.p_escuelas"
+        nz-col class="gutter-row" [nzSpan]="12">
+        <nz-select [(ngModel)]="idescuela" nzAllowClear nzPlaceHolder="Seleccione carrera..."
+            (ngModelChange)="cambiar_escuela()">
+            <nz-option *ngFor="let item of escuelas" nzValue="{{item.idescuela}}" nzLabel="{{item.nombre}}">
+            </nz-option>
+        </nz-select>
+    </div>
+
+    <div *ngIf="(eventos.usuario.p_rol_defecto == 19 || eventos.usuario.p_rol_defecto_descripcion == 'RESPONSABLE PLANIFICACION INSTITUCIONAL')"
+        nz-col class="gutter-row" [nzSpan]="12">
+        <nz-select [(ngModel)]="idindice_departamento" nzAllowClear nzPlaceHolder="Seleccione departamento..."
+            (ngModelChange)="cambiar_departamento()">
+            <nz-option *ngFor="let item of departamentos" nzValue="{{item.idindice}}" nzLabel="{{item.nombre_puesto}}">
+            </nz-option>
+        </nz-select>
+    </div>
+</div> -->
+
+<div class="contenido_dashboard">
+    <nz-tabset [(nzSelectedIndex)]="tab">
+        <nz-tab nzTitle="REGISTRO">
+            <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                <div nz-col class="gutter-row" [nzSpan]="4">
+                    <label>Año (*):</label>
+                    <nz-select [(ngModel)]="objetivo_estrategico.anio_inicio" nzAllowClear
+                        nzPlaceHolder="Seleccione año...">
+                        <nz-option *ngFor="let item of configuracion_anios" nzValue="{{item.anio}}"
+                            nzLabel="{{item.anio}}">
+                        </nz-option>
+                    </nz-select>
+                </div>
+
+                <div nz-col class="gutter-row" [nzSpan]="10">
+                    <label>Funciones Sustantivas (*):</label>
+                    <nz-select [(ngModel)]="objetivo_estrategico.idtipo_programa" nzAllowClear
+                        nzPlaceHolder="Seleccione función sustantiva...">
+                        <nz-option *ngFor="let item of catalogo_programas" nzValue="{{item.idtipo}}"
+                            nzLabel="{{item.nombre}}">
+                        </nz-option>
+                    </nz-select>
+                </div>
+
+                <div nz-col class="gutter-row" [nzSpan]="10">
+                    <label>Responsable Estratégico (*):</label>
+                    <nz-select [(ngModel)]="objetivo_estrategico.idtipo_responsable_estrategico" nzAllowClear
+                        nzPlaceHolder="Seleccione responsable estratégico...">
+                        <nz-option *ngFor="let item of catalogo_responsables" nzValue="{{item.idtipo}}"
+                            nzLabel="{{item.nombre}}">
+                        </nz-option>
+                    </nz-select>
+                </div>
+            </div>
+
+            <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                <div nz-col class="gutter-row" [nzSpan]="24">
+                    <label>Descripción (*):</label>
+                    <nz-textarea-count [nzMaxCharacterCount]="500">
+                        <textarea rows="4" nz-input [(ngModel)]="objetivo_estrategico.descripcion"></textarea>
+                    </nz-textarea-count>
+                </div>
+            </div>
+
+            <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                <div nz-col class="gutter-row" [nzSpan]="12">
+                    <label>Objetivos "Plan Creando Oportunidades"(*):</label>
+                    <nz-select [nzMaxTagCount]="3" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple"
+                        nzPlaceHolder="Seleccione objetivos..." [(ngModel)]="objetivo_estrategico.json_objetivos">
+                        <nz-option *ngFor="let item of catalogo_objetivos" nzLabel="{{item.nombre}}" [nzValue]="item"></nz-option>
+                    </nz-select>
+                    <ng-template #tagPlaceHolder let-selectedList>y {{ selectedList.length }} más seleccionados
+                    </ng-template>
+                </div>
+
+                <div nz-col class="gutter-row" [nzSpan]="12">
+                    <label>Políticas Institucionales(*):</label>
+                    <nz-select [nzMaxTagCount]="3" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple"
+                        nzPlaceHolder="Seleccione políticas institucionales..." [(ngModel)]="objetivo_estrategico.json_politicas">
+                        <nz-option *ngFor="let item of catalogo_politicas" nzLabel="{{item.nombre}}" [nzValue]="item"></nz-option>
+                    </nz-select>
+                    <ng-template #tagPlaceHolder let-selectedList>y {{ selectedList.length }} más seleccionados
+                    </ng-template>
+                </div>
+            </div>
+
+            <br>
+
+            <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+                <div nz-col class="gutter-row" nzOffset="4" [nzSpan]="8">
+                    <button nz-button class="boton_cancelar" nz-button nz-popconfirm
+                        nzPopconfirmTitle="Está seguro de cancelar este registro?" nzType="primary"
+                        nzPopconfirmPlacement="bottomRight" (nzOnConfirm)="limpiar_datos()">
+                        CANCELAR
+                    </button>
+                </div>
+
+                <div nz-col class="gutter-row" [nzSpan]="8">
+                    <button nz-button class="boton_guardar" nz-button nz-popconfirm
+                        nzPopconfirmTitle="Está seguro de guardar este registro?" nzType="primary"
+                        nzPopconfirmPlacement="bottomRight" (nzOnConfirm)="guardar_objetivo_estrategico()"
+                        [disabled]="!objetivo_estrategico.anio_inicio || !objetivo_estrategico.descripcion.length || objetivo_estrategico.idtipo_programa == '-1' || !objetivo_estrategico.idtipo_programa || objetivo_estrategico.idtipo_responsable_estrategico == '-1' || !objetivo_estrategico.idtipo_responsable_estrategico || !objetivo_estrategico.anio_inicio || !objetivo_estrategico.json_objetivos.length || !objetivo_estrategico.json_politicas.length">
+                        GUARDAR
+                    </button>
+                </div>
+            </div>
+        </nz-tab>
+
+        <nz-tab nzTitle="HISTORIAL">
+            <nz-table #nzTableObjetivosEstrategicos nzTableLayout="fixed" [nzData]="objetivos_estrategicos">
+                <thead>
+                    <tr>
+                        <th style="width: 15%; text-align: center;">No.</th>
+                        <th style="width: 30%; text-align: justify;">Descripción</th>
+                        <th style="width: 20%; text-align: center;">Programa</th>
+                        <th style="width: 20%; text-align: center;">Resp. Estratégico</th>
+                        <th style="width: 15%; text-align: center;">
+                            <i nz-icon nzType="setting"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of nzTableObjetivosEstrategicos.data; let i = index">
+                        <td style="text-align: center;">{{item.numero}}</td>
+                        <td style="text-align: justify;">{{item.descripcion}}</td>
+                        <td style="text-align: center;">{{item.nombre_programa}}</td>
+                        <td style="text-align: center;">{{item.nombre_responsable_estrategico}}</td>                        
+                        <td style="text-align: center;">
+                            <button nz-button nz-popconfirm nzPopconfirmTitle="Está seguro de modificar este registro?"
+                                nzType="primary" nzPopconfirmPlacement="bottomRight"
+                                (nzOnConfirm)="cargar_datos_actualizar(item)" nzType="primary" nzShape="circle"><i
+                                    nz-icon nzType="setting"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </nz-tab>
+    </nz-tabset>
+</div>
