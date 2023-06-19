@@ -1,0 +1,57 @@
+<app-loading></app-loading>
+
+<div class="container">
+  <div class="box">
+    <img class="logo" src="./../../../assets/images/four_engine.jpeg" />
+
+    <input type="text" [(ngModel)]="objeto_persona.id" nz-input placeholder="ID">
+
+    <input type="text" [(ngModel)]="objeto_persona.producto" nz-input placeholder="Producto">
+
+    <input type="number" [(ngModel)]="objeto_persona.precio" nz-input placeholder="Precio">
+
+    <input type="text" [(ngModel)]="objeto_persona.marca" nz-input placeholder="Marca">
+
+    <input type="text" [(ngModel)]="objeto_persona.numero_postal" nz-input placeholder="Número Postal">
+
+    <nz-date-picker [(ngModel)]="objeto_persona.fecha_venta"></nz-date-picker>
+
+    <nz-select [(ngModel)]="objeto_persona.ciudad" style="width: 100%;" nzPlaceHolder="Seleccione">
+      <nz-option *ngFor="let item of objeto_ciudad" [nzValue]="item" [nzLabel]="item"></nz-option>
+    </nz-select>
+
+    <button [disabled]="!objeto_persona.id || !objeto_persona.producto || !objeto_persona.precio || !objeto_persona.marca || !objeto_persona.numero_postal || !objeto_persona.fecha_venta || !objeto_persona.ciudad"
+      nz-button nzType="primary" (click)="dar_click()">Guardar</button>
+  </div>
+
+  <div class="table-container">
+    <nz-table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Marca</th>
+          <th>Número Postal</th>
+          <th>Fecha de Venta</th>
+          <th>Lugar de Distribución</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of objeto_tabla; let i = index">
+          <td>{{data.id}}</td>
+          <td>{{data.producto}}</td>
+          <td>{{data.precio}}</td>
+          <td>{{data.marca}}</td>
+          <td>{{data.numero_postal}}</td>
+          <td>{{data.fecha_venta}}</td>
+          <td>{{data.ciudad}}</td>
+          <td>
+            <a (click)="eliminar(i)">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
