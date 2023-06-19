@@ -60,7 +60,11 @@ import { EventosService } from 'src/app/services/eventos.service';
       'Santa Ana',
       'Manta',
       'Chone'
+<<<<<<< HEAD
 >>>>>>> 52736e7ea2c1db761a8f0c2657a39a60309cc9b9
+=======
+>>>>>>> acfafc5c97b5ed27b42d16b2d5b043a63222e9a3
+>>>>>>> 6f72720eadf115e9df4222cfa75d51de663e1b0f
     ];
     
    limpiar_datos(){
@@ -95,7 +99,11 @@ import { EventosService } from 'src/app/services/eventos.service';
     
 =======
   
+<<<<<<< HEAD
 >>>>>>> 52736e7ea2c1db761a8f0c2657a39a60309cc9b9
+=======
+>>>>>>> acfafc5c97b5ed27b42d16b2d5b043a63222e9a3
+>>>>>>> 6f72720eadf115e9df4222cfa75d51de663e1b0f
     ngOnInit(): void {
       this.usuarioForm = this.fb.group({
         usuario: [null, [Validators.required]],
