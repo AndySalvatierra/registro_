@@ -6,21 +6,25 @@
 
     <input type="text" [(ngModel)]="objeto_persona.id" nz-input placeholder="ID">
 
-    <input type="text" [(ngModel)]="objeto_persona.producto" nz-input placeholder="Producto">
+    <input type="text" [(ngModel)]="objeto_persona.nombre" nz-input placeholder="Nombre">
 
-    <input type="number" [(ngModel)]="objeto_persona.precio" nz-input placeholder="Precio">
+    <input type="number" [(ngModel)]="objeto_persona.edad" nz-input placeholder="Edad">
 
-    <input type="text" [(ngModel)]="objeto_persona.marca" nz-input placeholder="Marca">
+    <input type="text" [(ngModel)]="objeto_persona.raza" nz-input placeholder="Raza">
 
-    <input type="text" [(ngModel)]="objeto_persona.numero_postal" nz-input placeholder="Número Postal">
+    <input type="text" [(ngModel)]="objeto_persona.dueno" nz-input placeholder="Dueño">
 
-    <nz-date-picker [(ngModel)]="objeto_persona.fecha_venta"></nz-date-picker>
+    <nz-date-picker [(ngModel)]="objeto_persona.anio_nacimiento"></nz-date-picker>
 
-    <nz-select [(ngModel)]="objeto_persona.ciudad" style="width: 100%;" nzPlaceHolder="Seleccione">
+    <nz-select [(ngModel)]="objeto_persona.ciudad_envio" style="width: 100%;" nzPlaceHolder="Seleccione">
       <nz-option *ngFor="let item of objeto_ciudad" [nzValue]="item" [nzLabel]="item"></nz-option>
     </nz-select>
 
-    <button [disabled]="!objeto_persona.id || !objeto_persona.producto || !objeto_persona.precio || !objeto_persona.marca || !objeto_persona.numero_postal || !objeto_persona.fecha_venta || !objeto_persona.ciudad"
+    <nz-switch [(ngModel)]="objeto_persona.tiene_pedigri" nzCheckedValue="true" nzUnCheckedValue="false">
+      Tiene Pedigrí
+    </nz-switch>
+
+    <button [disabled]="!objeto_persona.id || !objeto_persona.nombre || !objeto_persona.edad || !objeto_persona.raza || !objeto_persona.dueno || !objeto_persona.anio_nacimiento || !objeto_persona.ciudad_envio"
       nz-button nzType="primary" (click)="dar_click()">Guardar</button>
   </div>
 
@@ -29,24 +33,26 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Producto</th>
-          <th>Precio</th>
-          <th>Marca</th>
-          <th>Número Postal</th>
-          <th>Fecha de Venta</th>
-          <th>Lugar de Distribución</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Raza</th>
+          <th>Dueño</th>
+          <th>Año de Nacimiento</th>
+          <th>Ciudad de Envío</th>
+          <th>Tiene Pedigrí</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of objeto_tabla; let i = index">
           <td>{{data.id}}</td>
-          <td>{{data.producto}}</td>
-          <td>{{data.precio}}</td>
-          <td>{{data.marca}}</td>
-          <td>{{data.numero_postal}}</td>
-          <td>{{data.fecha_venta}}</td>
-          <td>{{data.ciudad}}</td>
+          <td>{{data.nombre}}</td>
+          <td>{{data.edad}}</td>
+          <td>{{data.raza}}</td>
+          <td>{{data.dueno}}</td>
+          <td>{{data.anio_nacimiento | date}}</td>
+          <td>{{data.ciudad_envio}}</td>
+          <td>{{data.tiene_pedigri ? 'Sí' : 'No'}}</td>
           <td>
             <a (click)="eliminar(i)">Delete</a>
           </td>
